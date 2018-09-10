@@ -1,0 +1,77 @@
+body {
+    background: black;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    font-family: 'Creepster', Arial, sans-serif;
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.zombie1, .zombie2, .zombie3 {
+    position: absolute;
+    top: 25vw;
+    right: 0;
+    width: 200px;
+    height: 312px;
+    background-image: url("../sprites/walkingdead.png");
+    animation: zombie1 1.5s steps(10) infinite;
+}
+
+@keyframes zombie1 {
+    100% {
+        background-position: -2000px;
+    }
+}
+
+.zombie2 {
+    animation: zombie1 1.5s steps(10) infinite,
+    zombie2 20s infinite alternate-reverse,
+    flip 10s 20s;
+}
+
+.zombie3 {
+    animation: zombie1 1.5s steps(10) infinite,
+    zombie3 10s infinite linear,
+    flip 10ms 20s;
+}
+
+@keyframes zombie2 {
+    0% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(calc(-100vw + 200px),0);
+    }
+    51% {
+        transform: rotateY(180deg);
+    }
+    60% {
+        transform: rotateY(360deg);
+    }
+    100% {
+        transform: translate(-100%,0);
+    }
+}
+
+@keyframes zombie3 {
+    0% {
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(calc(-100vw + 200px),0);
+    }
+    51% {
+        transform: translate(calc(-100vw + 200px),0) rotateY(180deg);
+    }
+    100% {
+        transform: translate(-50px,0) rotateY(180deg);
+    }
+}
+
+@keyframes flip {
+    100% {
+        transform:rotateY(180deg);
+    }
+}
